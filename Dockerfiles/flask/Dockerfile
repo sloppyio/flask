@@ -12,7 +12,7 @@ ADD         requirements.txt /app/requirements.txt
 RUN         pip install -r /app/requirements.txt
 
 ADD         sloppytest.py /app/sloppytest.py
-ADD         templates/  /apps/templates
+ADD         templates/  /app/templates
 
 WORKDIR     /app
 
