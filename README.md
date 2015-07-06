@@ -1,6 +1,6 @@
 # Flask example for the sloppy.io cloud
 
-This is an example to run a nginx frontend with a python [flask] http://flask.pocoo.org/) backend.
+This is an example to run a nginx frontend with a python [flask](http://flask.pocoo.org/) backend.
 The example json has 3 variables, which will be replaced with the values which are commited 
 through the sloppy cli.
 
