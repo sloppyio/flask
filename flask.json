@@ -33,7 +33,7 @@
 		"apps": [{
 			"id": "flask",
 			"mem": 128,
-			"image": "sloppy/flask,
+			"image": "sloppy/flask",
 			"cmd": "",
 			"instances": 1,
 			"env": {
