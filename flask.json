@@ -1,0 +1,49 @@
+{
+	"project": "$PROJECT",
+	"services": [{
+		"id": "frontend",
+		"apps": [{
+			"id": "nginx",
+			"domain": {
+					"type": "HTTP",
+					"uri": "$URI"
+					
+			},
+			"volumes": [],
+			"port_mappings": [
+					{
+							"container_port": 80
+					}
+			],
+			"mem": 256,
+			"image": "sloppy/nginx",
+			"cmd": "",
+			"instances": 1,
+			"env": {
+					"URI": "$URI",
+					"URIBACKEND": "flask.backend.$PROJECT.$USERNAME"
+			},
+			"dependencies": [
+					"../../backend/flask"
+			]
+		}]
+	},
+	{
+		"id": "backend",
+		"apps": [{
+			"id": "flask",
+			"mem": 128,
+			"image": "sloppy/flask,
+			"cmd": "",
+			"instances": 1,
+			"port_mappings": [
+					{
+							"container_port": 5000
+					}
+			],
+			"env": {
+					"URIBACKEND": "flask.backend.$PROJECT.$USERNAME"
+			}
+		}]
+	}]
+}
