@@ -37,7 +37,8 @@
 			"cmd": "",
 			"instances": 1,
 			"env": {
-					"URIBACKEND": "flask.backend.$PROJECT.$USERNAME"
+					"URIBACKEND": "flask.backend.$PROJECT.$USERNAME",
+					"MESSAGE": "Hello world on sloppy.io"
 			}
 		}]
 	}]
