@@ -36,11 +36,6 @@
 			"image": "sloppy/flask,
 			"cmd": "",
 			"instances": 1,
-			"port_mappings": [
-					{
-							"container_port": 5000
-					}
-			],
 			"env": {
 					"URIBACKEND": "flask.backend.$PROJECT.$USERNAME"
 			}
