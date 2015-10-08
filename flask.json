@@ -17,7 +17,6 @@
 			],
 			"mem": 256,
 			"image": "sloppy/nginx",
-			"cmd": "",
 			"instances": 1,
 			"env": {
 					"URI": "$URI",
@@ -34,7 +33,6 @@
 			"id": "flask",
 			"mem": 128,
 			"image": "sloppy/flask",
-			"cmd": "",
 			"instances": 1,
 			"env": {
 					"URIBACKEND": "flask.backend.$PROJECT.$USERNAME",
