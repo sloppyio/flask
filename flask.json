@@ -7,7 +7,6 @@
 			"domain": {
 					"type": "HTTP",
 					"uri": "$URI"
-					
 			},
 			"volumes": [],
 			"port_mappings": [
