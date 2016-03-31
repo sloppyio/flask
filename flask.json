@@ -7,9 +7,7 @@
 			"domain": {
 					"type": "HTTP",
 					"uri": "$URI"
-
 			},
-			"volumes": [],
 			"port_mappings": [
 					{
 							"container_port": 80
@@ -20,7 +18,7 @@
 			"instances": 1,
 			"env": {
 					"URI": "$URI",
-					"URIBACKEND": "flask.backend.$PROJECT
+					"URIBACKEND": "flask.backend.$PROJECT"
 			},
 			"dependencies": [
 					"../../backend/flask"
@@ -40,10 +38,10 @@
 		"apps": [{
 			"id": "flask",
 			"mem": 128,
-			"image": "sloppy/testflask",
+			"image": "sloppy/flask",
 			"instances": 1,
 			"env": {
-					"URIBACKEND": "flask.backend.$PROJECT.$USERNAME",
+					"URIBACKEND": "flask.backend.$PROJECT",
 					"MESSAGE": "Hello world on sloppy.io"
 			}
 		}]
