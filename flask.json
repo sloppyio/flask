@@ -7,7 +7,7 @@
 			"domain": {
 					"type": "HTTP",
 					"uri": "$URI"
-					
+
 			},
 			"volumes": [],
 			"port_mappings": [
@@ -17,15 +17,22 @@
 			],
 			"mem": 256,
 			"image": "sloppy/nginx",
-			"cmd": "",
 			"instances": 1,
 			"env": {
 					"URI": "$URI",
-					"URIBACKEND": "flask.backend.$PROJECT.$USERNAME"
+					"URIBACKEND": "flask.backend.$PROJECT
 			},
 			"dependencies": [
 					"../../backend/flask"
-			]
+			],
+			"health_checks": [{
+        "timeout_seconds": 10,
+        "interval_seconds": 10,
+        "max_consecutive_failures": 2,
+        "path": "/",
+        "type": "HTTP",
+        "grace_period_seconds": 3
+      }]
 		}]
 	},
 	{
@@ -33,8 +40,7 @@
 		"apps": [{
 			"id": "flask",
 			"mem": 128,
-			"image": "sloppy/flask",
-			"cmd": "",
+			"image": "sloppy/testflask",
 			"instances": 1,
 			"env": {
 					"URIBACKEND": "flask.backend.$PROJECT.$USERNAME",

@@ -6,14 +6,13 @@ through the sloppy cli.
 
 Variables:
 
-* USERNAME: Your sloppy username
 * PROJECT: Your sloppy project
 * URI: The url of the project
 
 ## To start the nginx-flask
  
 ```
-sloppy start flask.json -var=USERNAME:marc,PROJECT:test,URI:test.sloppy.zone
+sloppy start -var=PROJECT:test -var=URI:test.sloppy.zone flask.json
 ```
 
 In this example you can reach the app under http://test.sloppy.zone.
