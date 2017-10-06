@@ -1,6 +1,5 @@
 FROM        alpine:3.2
 ENV         Build on 07/06/2015
-MAINTAINER  Marc Zimmermann <marc@sloppy.io>
 
 # Install security updates and required packages
 RUN apk add --update python py-pip bash libffi-dev openssl-dev  && \

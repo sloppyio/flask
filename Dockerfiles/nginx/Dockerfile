@@ -1,7 +1,4 @@
-# Nginx as a reverse proxy
-# for docker registry
 FROM nginx
-MAINTAINER Marc Zimmermann <marc@sloppy.io
 
 RUN apt-get update -q -y && \
     apt-get install -q -y python-setuptools && \

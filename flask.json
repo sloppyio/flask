@@ -1,49 +1,56 @@
 {
-	"project": "$PROJECT",
-	"services": [{
-		"id": "frontend",
-		"apps": [{
-			"id": "nginx",
-			"domain": {
-					"type": "HTTP",
-					"uri": "$URI"
-			},
-			"port_mappings": [
-					{
-							"container_port": 80
-					}
-			],
-			"mem": 256,
-			"image": "sloppy/nginx",
-			"instances": 1,
-			"env": {
-					"URI": "$URI",
-					"URIBACKEND": "flask.backend.$PROJECT"
-			},
-			"dependencies": [
-					"../../backend/flask"
-			],
-			"health_checks": [{
-        "timeout_seconds": 10,
-        "interval_seconds": 10,
-        "max_consecutive_failures": 2,
-        "path": "/",
-        "type": "HTTP",
-        "grace_period_seconds": 3
-      }]
-		}]
-	},
-	{
-		"id": "backend",
-		"apps": [{
-			"id": "flask",
-			"mem": 128,
-			"image": "sloppy/flask",
-			"instances": 1,
-			"env": {
-					"URIBACKEND": "flask.backend.$PROJECT",
-					"MESSAGE": "Hello world on sloppy.io"
-			}
-		}]
-	}]
+    "project": "$PROJECT",
+    "services": [
+        {
+            "id": "frontend",
+            "apps": [
+                {
+                    "id": "nginx",
+                    "domain": {
+                        "uri": "$URI"
+                    },
+                    "port_mappings": [
+                        {
+                            "container_port": 80
+                        }
+                    ],
+                    "mem": 256,
+                    "image": "sloppy/nginx",
+                    "instances": 1,
+                    "env": {
+                        "URI": "$URI",
+                        "URIBACKEND": "flask.backend.$PROJECT"
+                    },
+                    "dependencies": [
+                        "../backend/flask"
+                    ],
+                    "health_checks": [
+                        {
+                            "timeout_seconds": 10,
+                            "interval_seconds": 10,
+                            "max_consecutive_failures": 2,
+                            "path": "/",
+                            "type": "HTTP",
+                            "grace_period_seconds": 3
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "backend",
+            "apps": [
+                {
+                    "id": "flask",
+                    "mem": 128,
+                    "image": "sloppy/flask",
+                    "instances": 1,
+                    "env": {
+                        "URIBACKEND": "flask.backend.$PROJECT",
+                        "MESSAGE": "Hello world on sloppy.io"
+                    }
+                }
+            ]
+        }
+    ]
 }
